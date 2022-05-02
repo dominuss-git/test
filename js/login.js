@@ -11,6 +11,8 @@ const DISCOVERY_DOC = [
 // let gapiInited = false;
 // let gisInited = false;
 
+window.onload = onSignIn
+
 function onSignIn(googleUser) {
   // const profile = googleUser.getBasicProfile();
 

@@ -37,10 +37,6 @@ document.getElementById("search").addEventListener("click", (e) => {
 });
 
 document.getElementById("clear").addEventListener("click", (e) => {
-  // TODO: CAN be removed
-  const token = gapi.client.getToken();
-  console.log(token)
-
   filters.tags = [];
   filters.search = "";
 
