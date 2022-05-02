@@ -3,7 +3,7 @@ const DISCOVERY_DOC = [
 ];
 
 // Authorization scopes required by the API; multiple scopes can be
-// // included, separated by spaces.
+// included, separated by spaces.
 // const SCOPES = "https://www.googleapis.com/auth/calendar.readonly";
 // const CLIENT_ID =
 //   "822723435779-entgq7gcoh7lsobv2pjlg1ihbevfsio6.apps.googleusercontent.com";
