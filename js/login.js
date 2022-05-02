@@ -32,7 +32,7 @@ function onSignIn(googleUser) {
     gapi.auth2.getAuthInstance().currentUser.get().xc.id_token
   );
   localStorage.setItem(
-    "token",
+    "access_token",
     gapi.auth2.getAuthInstance().currentUser.get().xc.access_token
   );
   //   console.log('name', profile.getName());
