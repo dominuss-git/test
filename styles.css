@@ -1,0 +1,236 @@
+/* TODO: remove it */
+.container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.main {
+  display: grid;
+  grid-template-columns: minmax(320px, 450px) minmax(320px, 1fr);
+  grid-gap: 10px;
+  justify-content: center;
+}
+
+@media (max-width: 1040px) {
+  .main {
+    grid-template-columns: minmax(320px, 450px)
+  }
+}
+
+.main-wrapper {
+  display: grid;
+  grid-template-columns: minmax(320px, 450px);
+  grid-gap: 10px;
+}
+
+.info-container {
+  display: flex;
+}
+
+.container-task {
+  display: flex;
+  flex-direction: column;
+}
+
+.info-wrapper {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  padding: 20px;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border: 1px solid var(--main-bg-color);
+  background: var(--shadow-light-color);
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.wrapper__buttons {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.counter__content,
+.collect__content {
+  display: inline-flex;
+  justify-content: space-between;
+  font-size: 20px;
+  margin-top: 20px;
+}
+
+.output__field {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  width: 30px;
+  margin-right: 10px;
+  border: 1px solid var(--shadow-bg-color);
+  border-radius: 6px;
+  background-color: var(--logo-bg-color);
+}
+
+.counter__content_completed,
+.counter__content_remaining,
+.wrapper__output_count,
+.wrapper__time {
+  color: var(--main-bg-color);
+}
+
+.radio__wrapper {
+  font-size: 14px;
+  margin: 3px 3px 10px 3px;
+}
+
+.wrapper__filter {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10px, 100px));
+  grid-gap: 5px;
+  justify-content: center;
+}
+
+.pets__wrapper {
+  width: 80px;
+  display: block;
+  float: left;
+}
+
+.pets {
+  display: block;
+  border: 1px solid var(--shadow-bg-color);
+  border-radius: 50px;
+  margin: 0 5px 0 0;
+  height: 70px;
+  width: 70px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.task {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--main-bg-color);
+  background: var(--shadow-light-color);
+
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+
+  box-shadow: inset 0px 0px 15px var(--shadow-light-color);
+  -moz-box-shadow: inset 0px 0px 15px var(--shadow-light-color);
+  -webkit-box-shadow: inset 0px 0px 15px var(--shadow-light-color);
+}
+
+.task-content {
+  display: flex;
+  border-radius: 10px;
+  border: solid 1px var(--shadow-bg-color);
+  padding: 20px;
+  background-color: var(--background-color);
+}
+
+.task__time {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+.wrapper__time {
+  font-size: 20px;
+  padding: 3px;
+  color: var(--main-bg-color);
+}
+
+.button,
+.button-create {
+  padding: 15px;
+  text-decoration: none;
+  color: var(--logo-bg-color);
+  border: none;
+  background-color: var(--main-bg-color);
+  border-radius: 5px;
+  font-size: 17px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.button:nth-child(n + 1) {
+  margin: 0 0 0 10px;
+}
+
+textarea {
+  width: 320px;
+  height: 100px;
+  resize: none;
+}
+
+.button__column {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.general-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+}
+
+.new-task {
+  display: flex;
+  flex-direction: column;
+}
+
+.task-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.general-task-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 710px) {
+  .general-wrapper {
+    flex-direction: column;
+  }
+
+  .button__column {
+    margin: 10px 0 0 0;
+    justify-content: unset;
+  }
+}
+
+@media (max-width: 600px) {
+  .general-wrapper {
+    flex-direction: column;
+  }
+
+  .task-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .task__time {
+    width: 100%;
+  }
+}
+
+@media (max-width: 430px) {
+  .general-task-wrapper {
+    justify-content: unset;
+  }
+  textarea {
+    width: 250px;
+  }
+}
