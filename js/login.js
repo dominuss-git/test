@@ -142,13 +142,13 @@ function onClick() {
     start: {
       dateTime: new Date(
         currentDay.getMilliseconds() + 1000 * 60
-      ).toUTCString(),
+      ).toISOString(),
       timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone,
     },
     end: {
       dateTime: new Date(
         currentDay.getMilliseconds() + 1000 * 60 * 60
-      ).toUTCString(),
+      ).toISOString(),
       timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone,
     },
     recurrence: ["RRULE:FREQ=DAILY;COUNT=2"],
