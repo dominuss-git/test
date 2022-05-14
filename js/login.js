@@ -76,6 +76,9 @@ function handleAuthClick() {
   if (gapi.client.getToken() === null) {
     // Prompt the user to select a Google Account and ask for consent to share their data
     // when establishing a new session.
+    document.getElementsByClassName('main-wrapper')[0].style = "display: grid;";
+    document.getElementsByClassName('wrapper-logout')[0].style = "display: none;";
+
     tokenClient.requestAccessToken({ prompt: "consent" });
   } else {
     // Skip display of account chooser and consent dialog for an existing session.
@@ -94,6 +97,9 @@ function handleSignoutClick() {
     document.getElementById("content").innerText = "";
     document.getElementById("authorize_button").innerText = "Authorize";
     document.getElementById("signout_button").style.visibility = "hidden";
+    document.getElementsByClassName('main-wrapper')[0].style = "display: none;";
+    document.getElementsByClassName('wrapper-logout')[0].style = "display: static;";
+
   }
 }
 
@@ -116,22 +122,22 @@ async function listUpcomingEvents() {
     };
     response = await gapi.client.calendar.events.list(request);
   } catch (err) {
-    document.getElementById("content").innerText = err.message;
+    // document.getElementById("content").innerText = err.message;
     return;
   }
 
   const events = response.result.items;
   if (!events || events.length == 0) {
-    document.getElementById("content").innerText = "No events found.";
+    // document.getElementById("content").innerText = "No events found.";
     return;
   }
   // Flatten to string to display
-  const output = events.reduce(
-    (str, event) =>
-      `${str}${event.summary} (${event.start.dateTime || event.start.date})\n`,
-    "Events:\n"
-  );
-  document.getElementById("content").innerText = output;
+  // const output = events.reduce(
+    // (str, event) =>
+      // `${str}${event.summary} (${event.start.dateTime || event.start.date})\n`,
+    // "Events:\n"
+  // );
+  // document.getElementById("content").innerText = output;
 }
 function onClick() {
   const currentDay = new Date(Date.now());
@@ -163,7 +169,7 @@ function onClick() {
     },
   };
 
-  console.log(event);
+  // console.log(event);
 
   var request = gapi.client.calendar.events.insert({
     calendarId: "primary",
@@ -171,6 +177,6 @@ function onClick() {
   });
 
   request.execute(function (event) {
-    appendPre("Event created: " + event.htmlLink);
+    // appendPre("Event created: " + event.htmlLink);
   });
 }

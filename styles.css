@@ -12,7 +12,7 @@
 }
 
 .main-wrapper {
-  display: grid;
+  display: none;
   grid-template-columns: minmax(320px, 450px);
   grid-gap: 10px;
 }
