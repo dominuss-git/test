@@ -64,6 +64,13 @@ document.forms.filter_search.addEventListener("submit", (e) => {
 addTaskBtn.addEventListener("click", (e) => {
   e.preventDefault();
 
+  createCalendarMark(
+    nameTask?.value || "No name",
+    new Date(timeTask1?.value),
+    new Date(timeTask2?.value),
+    descrTask?.value
+  );
+
   tasks.default.push(
     new Task(
       nameTask?.value,

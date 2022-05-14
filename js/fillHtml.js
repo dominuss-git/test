@@ -2,6 +2,7 @@ const fillHtml = () => {
     taskForm.innerHTML = "";
     taskPrio.innerHTML = "";
     updateLocalStorage();
+
     if (!!tasks.default?.length) {
       tasks.default.filter((value) => {
         const haveTag = !filters.tags.length ? true : filters.tags.reduce((acc, val) => {

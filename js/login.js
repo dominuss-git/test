@@ -73,8 +73,8 @@ function handleAuthClick() {
     document.getElementsByClassName('general-task-wrapper')[0].style = "display: flex;";
     document.getElementsByClassName('wrapper-logout')[0].style = "display: none;";
 
-    document.getElementById("authorize_button").innerText = "Refresh";
-    await listUpcomingEvents();
+    document.getElementById("authorize_button").style.visibility = "hidden";
+    // await listUpcomingEvents();
   };
 
   if (gapi.client.getToken() === null) {
@@ -96,7 +96,7 @@ function handleSignoutClick() {
     google.accounts.oauth2.revoke(token.access_token);
     gapi.client.setToken("");
     document.getElementById("content").innerText = "";
-    document.getElementById("authorize_button").innerText = "Authorize";
+    document.getElementById("authorize_button").style.visibility = "visible";
     document.getElementById("signout_button").style.visibility = "hidden";
     document.getElementsByClassName('main-wrapper')[0].style = "display: none;";
     document.getElementsByClassName('general-task-wrapper')[0].style = "display: none;";
@@ -134,6 +134,12 @@ async function listUpcomingEvents() {
     return;
   }
   // Flatten to string to display
+  // tasks.default = events.map((task) => {
+    // return {
+      // nameOfTask: task.summary,
+
+    // }
+  // })
   // const output = events.reduce(
     // (str, event) =>
       // `${str}${event.summary} (${event.start.dateTime || event.start.date})\n`,
@@ -141,23 +147,19 @@ async function listUpcomingEvents() {
   // );
   // document.getElementById("content").innerText = output;
 }
-function onClick() {
+function createCalendarMark(summary, date1, date2, description) {
   const currentDay = new Date(Date.now());
 
   var event = {
-    summary: "ToDo",
+    summary,
     location: "BountyDo",
-    description: "test",
+    description,
     start: {
-      dateTime: new Date(
-        Number(currentDay) + 1000 * 60
-      ).toISOString(),
+      dateTime: date1.toISOString(),
       timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone,
     },
     end: {
-      dateTime: new Date(
-        Number(currentDay) + 1000 * 60 * 60
-      ).toISOString(),
+      dateTime: date2.toISOString(),
       timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone,
     },
     recurrence: ["RRULE:FREQ=DAILY;COUNT=2"],
