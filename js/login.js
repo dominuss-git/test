@@ -1,8 +1,3 @@
-/* exported gapiLoaded */
-/* exported gisLoaded */
-/* exported handleAuthClick */
-/* exported handleSignoutClick */
-
 // TODO(developer): Set to client ID and API key from the Developer Console
 const CLIENT_ID =
   "822723435779-entgq7gcoh7lsobv2pjlg1ihbevfsio6.apps.googleusercontent.com";
