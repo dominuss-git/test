@@ -14,9 +14,9 @@
     </header>
 
     <!--Add buttons to initiate auth sequence and sign out-->
-    <button class="g-signin2" data-onsuccess="handleAuthClick" id="authorize_button">Authorize</button>
+    <button class="g-signin2" onclick="handleAuthClick()" id="authorize_button">Authorize</button>
     <button id="signout_button" onclick="handleSignoutClick()">Sign Out</button>
-
+    <button onclick="onClick()">click me</button>
     <pre id="content" style="white-space: pre-wrap;"></pre>
 
     <script src="js/login.js"></script>
