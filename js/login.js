@@ -1,5 +1,5 @@
 // const DISCOVERY_DOC = [
-  // "https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest",
+// "https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest",
 // ];
 
 // Authorization scopes required by the API; multiple scopes can be
@@ -24,18 +24,12 @@ function onSignIn(googleUser) {
     "profile",
     gapi.auth2?.getAuthInstance().currentUser.get().getBasicProfile()
   );
-  console.log(
-    "token",
-    googleUser.getAuthResponse().id_token
-  );
+  console.log("token", googleUser.getAuthResponse().id_token);
 
-  localStorage.setItem(
-    "token",
-    googleUser.getAuthResponse().id_token
-  );
+  localStorage.setItem("token", googleUser.getAuthResponse().id_token);
   // localStorage.setItem(
-    // "access_token",
-    // gapi.auth2.getAuthInstance().currentUser.get().xc.access_token
+  // "access_token",
+  // gapi.auth2.getAuthInstance().currentUser.get().xc.access_token
   // );
   //   console.log('name', profile.getName());
   //   console.log('email', profile.getEmail());
@@ -44,23 +38,50 @@ function onSignIn(googleUser) {
   //   console.log('googleUser', googleUser);
 }
 
-// function onClick() {
-  // console.log(
-    // "profile",
-    // gapi.auth2?.getAuthInstance().currentUser.get().getBasicProfile()
-  // );
-  // console.log(
-    // "token",
-    // gapi.auth2?.getAuthInstance().currentUser.get().xc.id_token
-  // );
-// }
+function onClick() {
+  const currentDay = new Date(Date.now());
+
+  var event = {
+    summary: "Google I/O 2015",
+    location: "800 Howard St., San Francisco, CA 94103",
+    description: "A chance to hear more about Google's developer products.",
+    start: {
+      dateTime: new Date(currentDay.getMilliseconds() + 1000 * 60).toUTCString(),
+      timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+    },
+    end: {
+      dateTime: new Date(currentDay.getMilliseconds() + 1000 * 60 * 60).toUTCString(),
+      timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+    },
+    recurrence: ["RRULE:FREQ=DAILY;COUNT=2"],
+    attendees: [{ email: "iceandrise@gmail.com" }],
+    reminders: {
+      useDefault: false,
+      overrides: [
+        { method: "email", minutes: 24 * 60 },
+        { method: "popup", minutes: 10 },
+      ],
+    },
+  };
+
+  console.log(event);
+
+  var request = gapi.client.calendar.events.insert({
+    calendarId: "primary",
+    resource: event,
+  });
+
+  request.execute(function (event) {
+    appendPre("Event created: " + event.htmlLink);
+  });
+}
 
 // function load() {
-  // gapiLoaded();
+// gapiLoaded();
 // }
 
 // function gapiLoaded() {
-  // gapi.load("client", intializeGapiClient);
+// gapi.load("client", intializeGapiClient);
 // }
 
 /**
