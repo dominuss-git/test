@@ -67,8 +67,8 @@ const createTemplate = (task, top = false, index) => {
       }" width="45px" height="45px ">
   
       <label class="wrapper__time">Time</label>
-      <input type="time" name="cron" disabled value = ${task.time1}>
-      <input type="time" name="cron" disabled value = ${task.time2}>
+      <input type="datetime-local" name="cron" disabled value = ${task.time1}>
+      <input type="datetime-local" name="cron" disabled value = ${task.time2}>
     </div>
   </div>
   <div class="button__column">
