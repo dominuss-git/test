@@ -189,7 +189,7 @@ textarea {
 }
 
 .general-task-wrapper {
-  display: flex;
+  display: none;
   justify-content: center;
 }
 

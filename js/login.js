@@ -77,6 +77,7 @@ function handleAuthClick() {
     // Prompt the user to select a Google Account and ask for consent to share their data
     // when establishing a new session.
     document.getElementsByClassName('main-wrapper')[0].style = "display: grid;";
+    document.getElementsByClassName('general-task-wrapper')[0].style = "display: flex;";
     document.getElementsByClassName('wrapper-logout')[0].style = "display: none;";
 
     tokenClient.requestAccessToken({ prompt: "consent" });
@@ -98,6 +99,7 @@ function handleSignoutClick() {
     document.getElementById("authorize_button").innerText = "Authorize";
     document.getElementById("signout_button").style.visibility = "hidden";
     document.getElementsByClassName('main-wrapper')[0].style = "display: none;";
+    document.getElementsByClassName('general-task-wrapper')[0].style = "display: none;";
     document.getElementsByClassName('wrapper-logout')[0].style = "display: static;";
 
   }
