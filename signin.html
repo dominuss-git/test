@@ -14,7 +14,7 @@
     </header>
 
     <!--Add buttons to initiate auth sequence and sign out-->
-    <button class="g-signin2" data-onsuccess="onSignIn" id="authorize_button">Authorize</button>
+    <button class="g-signin2" data-onsuccess="handleAuthClick" id="authorize_button">Authorize</button>
     <button id="signout_button" onclick="handleSignoutClick()">Sign Out</button>
 
     <pre id="content" style="white-space: pre-wrap;"></pre>
