@@ -69,10 +69,11 @@ function handleAuthClick() {
       throw resp;
     }
     document.getElementById("signout_button").style.visibility = "visible";
-    document.getElementsByClassName('main-index')[0].classList = ['main'];
-    document.getElementsByClassName('main-wrapper')[0].style = "display: grid;";
-    document.getElementsByClassName('general-task-wrapper')[0].style = "display: flex;";
-    document.getElementsByClassName('wrapper-logout')[0].style = "display: none;";
+    document.getElementsByClassName("main")[0].style.display = "grid";
+    // document.getElementsByClassName('main-wrapper')[0].style = "display: grid;";
+    // document.getElementsByClassName('general-task-wrapper')[0].style = "display: flex;";
+    document.getElementsByClassName("wrapper-logout")[0].style =
+      "display: none;";
 
     document.getElementById("authorize_button").style.visibility = "hidden";
     // await listUpcomingEvents();
@@ -99,11 +100,12 @@ function handleSignoutClick() {
     document.getElementById("content").innerText = "";
     document.getElementById("authorize_button").style.visibility = "visible";
     document.getElementById("signout_button").style.visibility = "hidden";
-    document.getElementsByClassName('main')[0].classList = ['main-index'];
-    document.getElementsByClassName('main-wrapper')[0].style = "display: none;";
-    document.getElementsByClassName('general-task-wrapper')[0].style = "display: none;";
-    document.getElementsByClassName('wrapper-logout')[0].style = "display: static;";
-
+    document.getElementsByClassName("main")[0].style.display = "none";
+    // document.getElementsByClassName('main')[0].classList = ['main-index'];
+    // document.getElementsByClassName('main-wrapper')[0].style = "display: none;";
+    // document.getElementsByClassName('general-task-wrapper')[0].style = "display: none;";
+    document.getElementsByClassName("wrapper-logout")[0].style =
+      "display: static;";
   }
 }
 
@@ -122,7 +124,7 @@ async function listUpcomingEvents() {
       singleEvents: true,
       maxResults: 10,
       orderBy: "startTime",
-      q: "BountyDo"
+      q: "BountyDo",
     };
     response = await gapi.client.calendar.events.list(request);
   } catch (err) {
@@ -137,15 +139,15 @@ async function listUpcomingEvents() {
   }
   // Flatten to string to display
   // tasks.default = events.map((task) => {
-    // return {
-      // nameOfTask: task.summary,
+  // return {
+  // nameOfTask: task.summary,
 
-    // }
+  // }
   // })
   // const output = events.reduce(
-    // (str, event) =>
-      // `${str}${event.summary} (${event.start.dateTime || event.start.date})\n`,
-    // "Events:\n"
+  // (str, event) =>
+  // `${str}${event.summary} (${event.start.dateTime || event.start.date})\n`,
+  // "Events:\n"
   // );
   // document.getElementById("content").innerText = output;
 }
