@@ -141,13 +141,13 @@ function onClick() {
     description: "A chance to hear more about Google's developer products.",
     start: {
       dateTime: new Date(
-        currentDay.getMilliseconds() + 1000 * 60
+        currentDay.getMilliseconds() * 1000 + 1000 * 60
       ).toISOString(),
       timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone,
     },
     end: {
       dateTime: new Date(
-        currentDay.getMilliseconds() + 1000 * 60 * 60
+        currentDay.getMilliseconds() * 1000 + 1000 * 60 * 60
       ).toISOString(),
       timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone,
     },
