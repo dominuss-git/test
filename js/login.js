@@ -112,6 +112,7 @@ async function listUpcomingEvents() {
       singleEvents: true,
       maxResults: 10,
       orderBy: "startTime",
+      q: "BountyDo"
     };
     response = await gapi.client.calendar.events.list(request);
   } catch (err) {
@@ -136,9 +137,9 @@ function onClick() {
   const currentDay = new Date(Date.now());
 
   var event = {
-    summary: "Google I/O 2015",
-    location: "800 Howard St., San Francisco, CA 94103",
-    description: "A chance to hear more about Google's developer products.",
+    summary: "ToDo",
+    location: "BountyDo",
+    description: "test",
     start: {
       dateTime: new Date(
         Number(currentDay) + 1000 * 60
