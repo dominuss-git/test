@@ -69,6 +69,7 @@ function handleAuthClick() {
       throw resp;
     }
     document.getElementById("signout_button").style.visibility = "visible";
+    document.getElementsByClassName('main-index')[0].classList = ['main'];
     document.getElementsByClassName('main-wrapper')[0].style = "display: grid;";
     document.getElementsByClassName('general-task-wrapper')[0].style = "display: flex;";
     document.getElementsByClassName('wrapper-logout')[0].style = "display: none;";
@@ -98,6 +99,7 @@ function handleSignoutClick() {
     document.getElementById("content").innerText = "";
     document.getElementById("authorize_button").style.visibility = "visible";
     document.getElementById("signout_button").style.visibility = "hidden";
+    document.getElementsByClassName('main')[0].classList = ['main-index'];
     document.getElementsByClassName('main-wrapper')[0].style = "display: none;";
     document.getElementsByClassName('general-task-wrapper')[0].style = "display: none;";
     document.getElementsByClassName('wrapper-logout')[0].style = "display: static;";
@@ -148,8 +150,6 @@ async function listUpcomingEvents() {
   // document.getElementById("content").innerText = output;
 }
 function createCalendarMark(summary, date1, date2, description) {
-  const currentDay = new Date(Date.now());
-
   var event = {
     summary,
     location: "BountyDo",
@@ -162,7 +162,7 @@ function createCalendarMark(summary, date1, date2, description) {
       dateTime: date2.toISOString(),
       timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone,
     },
-    recurrence: ["RRULE:FREQ=DAILY;COUNT=2"],
+    recurrence: ["RRULE:FREQ=DAILY;COUNT=1"],
     attendees: [{ email: "iceandrise@gmail.com" }],
     reminders: {
       useDefault: false,
